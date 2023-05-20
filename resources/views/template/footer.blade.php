@@ -54,6 +54,8 @@
                     if (res.status == "success") {
                         $("#addEmployeeModal").modal('hide');
                         $("#addEmployeeForm")[0].reset();
+                        $(".table").load(location.href +
+                            ' .table');
                     }
                 },
                 error: function(err) {

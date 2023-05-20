@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 
 class Employees extends Controller {
     function employees() {
-        return view( 'employees' );
+        $employees = Employee::latest()->paginate( 5 );
+        return view( 'employees', compact( 'employees' ) );
     }
 
     function addEmployee( Request $request ) {
