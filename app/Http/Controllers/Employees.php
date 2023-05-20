@@ -66,4 +66,9 @@ class Employees extends Controller {
         Employee::find( $request->del_id )->delete();
         return response()->json( ['status' => 'success'] );
     }
+
+    function pagination() {
+        $employees = Employee::latest()->paginate( 5 );
+        return view( 'template.pagination_employees', compact( 'employees' ) )->render();
+    }
 }

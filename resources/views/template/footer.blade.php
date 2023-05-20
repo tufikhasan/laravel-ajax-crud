@@ -152,6 +152,22 @@
                 },
             })
         })
+
+        //add Employee ajax
+        $(document).on('click', '.pagination a', function(e) {
+            e.preventDefault();
+            let page = $(this).attr('href').split('page=')[1];
+            employeePagination(page);
+        })
+
+        function employeePagination(page) {
+            $.ajax({
+                url: "/pagination/paginate-data?page=" + page,
+                success: function(res) {
+                    $('.table-data').html(res);
+                },
+            })
+        }
     });
 </script>
 </body>

@@ -8,4 +8,5 @@ Route::controller( Employees::class )->group( function () {
     Route::post( '/add-employee', 'addEmployee' )->name( 'add.employee' );
     Route::post( '/update-employee', 'updateEmployee' )->name( 'update.employee' );
     Route::post( '/delete-employee', 'deleteEmployee' )->name( 'delete.employee' );
+    Route::get( '/pagination/paginate-data', 'pagination' );
 } );

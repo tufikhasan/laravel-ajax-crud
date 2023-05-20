@@ -8,11 +8,13 @@ body {
     margin: 30px 0;
 }
 .table-wrapper {
-    background: #fff;
     padding: 20px 25px;
     border-radius: 3px;
     min-width: 1000px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+.table {
+    background: #fff;
 }
 .table-title {
     padding-bottom: 15px;
@@ -225,7 +227,4 @@ table.table .avatar {
 }
 .modal form label {
     font-weight: normal;
-}
-nav.flex.items-center.justify-between svg {
-    height: 24px;
 }
