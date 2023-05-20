@@ -68,6 +68,26 @@
                 }
             })
         })
+
+        //show Employee value in edit form
+        $(document).on('click', '.edit', function(e) {
+            let id, name, email, address, phone;
+
+            id = $(this).data('id');
+            name = $(this).data('name');
+            email = $(this).data('email');
+            address = $(this).data('address');
+            phone = $(this).data('phone');
+
+            $('#up_id').val(id);
+            $('#up_name').val(name);
+            $('#up_email').val(email);
+            $('#up_address').val(address);
+            $('#up_phone').val(phone);
+            console.log(name, address, id, phone, email);
+
+
+        })
     });
 </script>
 </body>

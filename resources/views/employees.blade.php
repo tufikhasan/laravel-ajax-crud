@@ -46,8 +46,11 @@
                             <td>{{ $value->address }}</td>
                             <td>{{ $value->phone }}</td>
                             <td>
-                                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i
-                                        class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                                <a href="#editEmployeeModal" class="edit" data-toggle="modal"
+                                    data-id="{{ $value->id }}" data-name="{{ $value->name }}"
+                                    data-email="{{ $value->email }}" data-address="{{ $value->address }}"
+                                    data-phone="{{ $value->phone }}"><i class="material-icons" data-toggle="tooltip"
+                                        title="Edit">&#xE254;</i></a>
                                 <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i
                                         class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                             </td>
@@ -124,6 +127,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <form>
+                <input type="hidden" name="up_id" id="up_id">
                 <div class="modal-header">
                     <h4 class="modal-title">Edit Employee</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
@@ -133,19 +137,19 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label>Name</label>
-                        <input type="text" class="form-control" required />
+                        <input type="text" class="form-control" name="up_name" id="up_name" required />
                     </div>
                     <div class="form-group">
                         <label>Email</label>
-                        <input type="email" class="form-control" required />
+                        <input type="email" class="form-control" name="up_email" id="up_email" required />
                     </div>
                     <div class="form-group">
                         <label>Address</label>
-                        <textarea class="form-control" required></textarea>
+                        <textarea class="form-control" name="up_address" id="up_address" required></textarea>
                     </div>
                     <div class="form-group">
                         <label>Phone</label>
-                        <input type="text" class="form-control" required />
+                        <input type="text" class="form-control" name="up_phone" id="up_phone" required />
                     </div>
                 </div>
                 <div class="modal-footer">
