@@ -71,4 +71,18 @@ class Employees extends Controller {
         $employees = Employee::latest()->paginate( 5 );
         return view( 'template.pagination_employees', compact( 'employees' ) )->render();
     }
+    function searchEmployee( Request $request ) {
+        $employees = Employee::where( 'name', 'like', '%' . $request->search_string . '%' )
+            ->orWhere( 'email', 'like', '%' . $request->search_string . '%' )
+            ->orWhere( 'address', 'like', '%' . $request->search_string . '%' )
+            ->orWhere( 'phone', 'like', '%' . $request->search_string . '%' )
+            ->orderBy( 'id', 'desc' )
+            ->paginate( 5 );
+
+        if ( $employees->count() >= 1 ) {
+            return view( 'template.pagination_employees', compact( 'employees' ) )->render();
+        } else {
+            return response()->json( ['status' => 'not-found'] );
+        }
+    }
 }

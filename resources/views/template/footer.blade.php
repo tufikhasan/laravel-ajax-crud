@@ -168,6 +168,27 @@
                 },
             })
         }
+
+        //search Employee ajax
+        $(document).on('keyup', function(e) {
+            e.preventDefault();
+            let search_string = $('#search').val();
+            $.ajax({
+                url: "{{ route('search.employee') }}",
+                method: "get",
+                data: {
+                    search_string: search_string,
+                },
+                success: function(res) {
+                    $('.table-data').html(res);
+                    if (res.status == 'not-found') {
+                        $('.table-data').html(
+                            `<h6 class="text-danger mb-2"><b class="text-dark">${search_string}:- </b> No Employee found</h6>`
+                        );
+                    }
+                },
+            })
+        })
     });
 </script>
 </body>
