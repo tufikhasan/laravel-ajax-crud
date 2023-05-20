@@ -226,3 +226,6 @@ table.table .avatar {
 .modal form label {
     font-weight: normal;
 }
+nav.flex.items-center.justify-between svg {
+    height: 24px;
+}

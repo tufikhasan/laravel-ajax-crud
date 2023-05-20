@@ -56,7 +56,6 @@
 
                 </tbody>
             </table>
-            {!! $employees->links() !!}
             <div class="clearfix">
                 <div class="hint-text">
                     Showing <b>5</b> out of <b>25</b> entries
@@ -75,6 +74,9 @@
             </div>
         </div>
     </div>
+    {{-- Both 2 are use for laravel pagination --}}
+    {{-- {{ $employees->links() }} --}}
+    {!! $employees->links() !!}
 </div>
 <!-- Edit Modal HTML -->
 <div id="addEmployeeModal" class="modal fade">
