@@ -35,4 +35,29 @@ class Employees extends Controller {
 
         return response()->json( ['status' => 'success'] );
     }
+    //Update employee
+    function updateEmployee( Request $request ) {
+        $request->validate( [
+            'up_name'    => 'required',
+            'up_email'   => 'required|unique:employees,email,' . $request->up_id,
+            'up_address' => 'required',
+            'up_phone'   => 'required|unique:employees,phone,' . $request->up_id,
+        ], [
+            'up_name.required'    => 'Name is Required',
+            'up_email.required'   => 'Email is Required',
+            'up_email.unique'     => 'Employee Email already exist',
+            'up_address.required' => 'Address is Required',
+            'up_phone.required'   => 'Phone number is Required',
+            'up_phone.unique'     => 'Employee Phone number already exist',
+        ] );
+
+        Employee::where( 'id', $request->up_id )->update( [
+            'name'    => $request->up_name,
+            'email'   => $request->up_email,
+            'address' => $request->up_address,
+            'phone'   => $request->up_phone,
+        ] );
+
+        return response()->json( ['status' => 'success'] );
+    }
 }

@@ -84,9 +84,45 @@
             $('#up_email').val(email);
             $('#up_address').val(address);
             $('#up_phone').val(phone);
-            console.log(name, address, id, phone, email);
+        })
 
+        //update Employee ajax
+        $(document).on('click', '.update_employee', function(e) {
+            e.preventDefault();
+            let up_id, up_name, up_email, up_address, up_phone;
+            up_id = $('#up_id').val();
+            up_name = $('#up_name').val();
+            up_email = $('#up_email').val();
+            up_address = $('#up_address').val();
+            up_phone = $('#up_phone').val();
 
+            $.ajax({
+                url: "{{ route('update.employee') }}",
+                method: "post",
+                data: {
+                    up_id: up_id,
+                    up_name: up_name,
+                    up_email: up_email,
+                    up_address: up_address,
+                    up_phone: up_phone
+                },
+                success: function(res) {
+                    if (res.status == "success") {
+                        $("#editEmployeeModal").modal('hide');
+                        $("#updateEmployee")[0].reset();
+                        $(".table").load(location.href +
+                            ' .table');
+                    }
+                },
+                error: function(err) {
+                    let error = err.responseJSON;
+                    $.each(error.errors, function(index, value) {
+                        $('.updateErrMsgContainer').append(
+                            `<span class="text-danger mb-2">${value}</span><br>`
+                        )
+                    })
+                }
+            })
         })
     });
 </script>
