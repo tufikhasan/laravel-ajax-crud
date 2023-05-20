@@ -124,6 +124,34 @@
                 }
             })
         })
+
+        //show Employee id in delete modal form
+        $(document).on('click', '.delete', function(e) {
+            let id = $(this).data('id');
+            $('#del_id').val(id);
+        })
+
+        //delete Employee ajax
+        $(document).on('click', '.delete_employee', function(e) {
+            e.preventDefault();
+            let del_id = $('#del_id').val();
+
+            $.ajax({
+                url: "{{ route('delete.employee') }}",
+                method: "post",
+                data: {
+                    del_id: del_id,
+                },
+                success: function(res) {
+                    if (res.status == "success") {
+                        $("#deleteEmployeeModal").modal('hide');
+                        // $("#updateEmployee")[0].reset();
+                        $(".table").load(location.href +
+                            ' .table');
+                    }
+                },
+            })
+        })
     });
 </script>
 </body>

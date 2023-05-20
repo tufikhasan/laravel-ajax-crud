@@ -51,8 +51,9 @@
                                     data-email="{{ $value->email }}" data-address="{{ $value->address }}"
                                     data-phone="{{ $value->phone }}"><i class="material-icons" data-toggle="tooltip"
                                         title="Edit">&#xE254;</i></a>
-                                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i
-                                        class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"
+                                    data-id="{{ $value->id }}"><i class="material-icons" data-toggle="tooltip"
+                                        title="Delete">&#xE872;</i></a>
                             </td>
                         </tr>
                     @endforeach
@@ -169,6 +170,8 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <form>
+                @csrf
+                <input type="hidden" name="del_id" id="del_id">
                 <div class="modal-header">
                     <h4 class="modal-title">Delete Employee</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
@@ -177,13 +180,10 @@
                 </div>
                 <div class="modal-body">
                     <p>Are you sure you want to delete these Records?</p>
-                    <p class="text-warning">
-                        <small>This action cannot be undone.</small>
-                    </p>
                 </div>
                 <div class="modal-footer">
                     <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel" />
-                    <input type="submit" class="btn btn-danger" value="Delete" />
+                    <input type="submit" class="btn btn-danger delete_employee" value="Delete" />
                 </div>
             </form>
         </div>

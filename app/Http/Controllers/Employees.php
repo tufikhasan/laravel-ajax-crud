@@ -60,4 +60,10 @@ class Employees extends Controller {
 
         return response()->json( ['status' => 'success'] );
     }
+    //Update employee
+    function deleteEmployee( Request $request ) {
+        // Employee::where( 'id', $request->del_id )->delete();
+        Employee::find( $request->del_id )->delete();
+        return response()->json( ['status' => 'success'] );
+    }
 }
