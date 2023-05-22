@@ -56,9 +56,11 @@
                         $("#addEmployeeForm")[0].reset();
                         $(".table").load(location.href +
                             ' .table');
+                        $('.errMsgContainer').html('');
                     }
                 },
                 error: function(err) {
+                    $('.errMsgContainer').html('');
                     let error = err.responseJSON;
                     $.each(error.errors, function(index, value) {
                         $('.errMsgContainer').append(
@@ -88,6 +90,7 @@
 
         //update Employee ajax
         $(document).on('click', '.update_employee', function(e) {
+            $('.updateErrMsgContainer').html('');
             e.preventDefault();
             let up_id, up_name, up_email, up_address, up_phone;
             up_id = $('#up_id').val();
@@ -112,9 +115,11 @@
                         $("#updateEmployee")[0].reset();
                         $(".table").load(location.href +
                             ' .table');
+                        $('.updateErrMsgContainer').html('');
                     }
                 },
                 error: function(err) {
+                    $('.updateErrMsgContainer').html('');
                     let error = err.responseJSON;
                     $.each(error.errors, function(index, value) {
                         $('.updateErrMsgContainer').append(
@@ -189,6 +194,13 @@
                 },
             })
         })
+
+        //show Employee id in delete modal form
+        $(document).on('click', '.modal-close', function(e) {
+            $('.errMsgContainer').html('');
+            $('.updateErrMsgContainer').html('');
+        })
+
     });
 </script>
 </body>

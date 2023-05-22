@@ -75,7 +75,7 @@
                 @csrf
                 <div class="modal-header">
                     <h4 class="modal-title">Add Employee</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <button type="button" class="close modal-close" data-dismiss="modal" aria-hidden="true">
                         &times;
                     </button>
                 </div>
@@ -101,7 +101,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel" />
+                    <input type="button" class="btn btn-default modal-close" data-dismiss="modal" value="Cancel" />
                     <input type="submit" class="btn btn-success add_employee" value="Add" />
                 </div>
             </form>
@@ -117,14 +117,14 @@
                 <input type="hidden" name="up_id" id="up_id">
                 <div class="modal-header">
                     <h4 class="modal-title">Edit Employee</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <button type="button" class="close modal-close" data-dismiss="modal" aria-hidden="true">
                         &times;
                     </button>
                 </div>
-                <div class="updateErrMsgContainer mb-3">
-                    <!--Error message area-->
-                </div>
                 <div class="modal-body">
+                    <div class="updateErrMsgContainer mb-3">
+                        <!--Error message area-->
+                    </div>
                     <div class="form-group">
                         <label>Name</label>
                         <input type="text" class="form-control" name="up_name" id="up_name" required />
@@ -143,7 +143,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel" />
+                    <input type="button" class="btn btn-default modal-close" data-dismiss="modal" value="Cancel" />
                     <input type="submit" class="btn btn-info update_employee" value="Save" />
                 </div>
             </form>
