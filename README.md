@@ -1,3 +1,3 @@
-(facebook)[https://www.facebook.com/ami.toufiq]
+[facebook](https://www.facebook.com/ami.toufiq)
 
-(gmail)[tufikhasan05@gmail.com]
+[gmail](tufikhasan05@gmail.com)
