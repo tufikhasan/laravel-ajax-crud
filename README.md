@@ -1,2 +1,3 @@
-CREATE EMPLOYEE TABLE: php artisan make:model Employee -m
-CREATE CONTROLLER: php artisan make:controller Employees
+(facebook)[https://www.facebook.com/ami.toufiq]
+
+(gmail)[tufikhasan05@gmail.com]

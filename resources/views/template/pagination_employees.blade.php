@@ -3,8 +3,7 @@
         <tr>
             <th>
                 <span class="custom-checkbox">
-                    <input type="checkbox" id="selectAll" />
-                    <label for="selectAll"></label>
+                    SL No:
                 </span>
             </th>
             <th>Name</th>
@@ -19,8 +18,7 @@
             <tr>
                 <td>
                     <span class="custom-checkbox">
-                        <input type="checkbox" id="checkbox5" name="options[]" value="1" />
-                        <label for="checkbox5"></label>
+                        {{ $key + 1 }}
                     </span>
                 </td>
                 <td>{{ $value->name }}</td>

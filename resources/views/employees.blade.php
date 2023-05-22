@@ -2,10 +2,10 @@
 <div class="container-xl">
     <div class="table-responsive">
         <div class="table-wrapper">
-            <div class="table-title">
+            <div class="table-title rounded">
                 <div class="row">
                     <div class="col-sm-6">
-                        <h2>Manage <b>Employees</b></h2>
+                        <h2>Student <b>Managements</b></h2>
                     </div>
                     <div class="col-sm-6">
                         <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i
@@ -21,8 +21,7 @@
                         <tr>
                             <th>
                                 <span class="custom-checkbox">
-                                    <input type="checkbox" id="selectAll" />
-                                    <label for="selectAll"></label>
+                                    SL No:
                                 </span>
                             </th>
                             <th>Name</th>
@@ -37,8 +36,7 @@
                             <tr>
                                 <td>
                                     <span class="custom-checkbox">
-                                        <input type="checkbox" id="checkbox5" name="options[]" value="1" />
-                                        <label for="checkbox5"></label>
+                                        {{ $key + 1 }}
                                     </span>
                                 </td>
                                 <td>{{ $value->name }}</td>
@@ -67,111 +65,7 @@
         </div>
     </div>
 </div>
-<!-- Edit Modal HTML -->
-<div id="addEmployeeModal" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form action="" method="POST" id="addEmployeeForm">
-                @csrf
-                <div class="modal-header">
-                    <h4 class="modal-title">Add Employee</h4>
-                    <button type="button" class="close modal-close" data-dismiss="modal" aria-hidden="true">
-                        &times;
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="errMsgContainer mb-3">
-                        <!--Error message area-->
-                    </div>
-                    <div class="form-group">
-                        <label>Name</label>
-                        <input type="text" class="form-control" name="name" id="name" />
-                    </div>
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" class="form-control" name="email" id="email" />
-                    </div>
-                    <div class="form-group">
-                        <label>Address</label>
-                        <textarea class="form-control" name="address" id="address"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Phone</label>
-                        <input type="text" name="phone" id="phone" class="form-control" />
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <input type="button" class="btn btn-default modal-close" data-dismiss="modal" value="Cancel" />
-                    <input type="submit" class="btn btn-success add_employee" value="Add" />
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-<!-- Edit Modal HTML -->
-<div id="editEmployeeModal" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form id="updateEmployee">
-                @csrf
-                <input type="hidden" name="up_id" id="up_id">
-                <div class="modal-header">
-                    <h4 class="modal-title">Edit Employee</h4>
-                    <button type="button" class="close modal-close" data-dismiss="modal" aria-hidden="true">
-                        &times;
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="updateErrMsgContainer mb-3">
-                        <!--Error message area-->
-                    </div>
-                    <div class="form-group">
-                        <label>Name</label>
-                        <input type="text" class="form-control" name="up_name" id="up_name" required />
-                    </div>
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" class="form-control" name="up_email" id="up_email" required />
-                    </div>
-                    <div class="form-group">
-                        <label>Address</label>
-                        <textarea class="form-control" name="up_address" id="up_address" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Phone</label>
-                        <input type="text" class="form-control" name="up_phone" id="up_phone" required />
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <input type="button" class="btn btn-default modal-close" data-dismiss="modal" value="Cancel" />
-                    <input type="submit" class="btn btn-info update_employee" value="Save" />
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-<!-- Delete Modal HTML -->
-<div id="deleteEmployeeModal" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form>
-                @csrf
-                <input type="hidden" name="del_id" id="del_id">
-                <div class="modal-header">
-                    <h4 class="modal-title">Delete Employee</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                        &times;
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>Are you sure you want to delete these Records?</p>
-                </div>
-                <div class="modal-footer">
-                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel" />
-                    <input type="submit" class="btn btn-danger delete_employee" value="Delete" />
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
+@include('template.add_modal');
+@include('template.edit_modal');
+@include('template.delete_modal');
 @include('template.footer');
